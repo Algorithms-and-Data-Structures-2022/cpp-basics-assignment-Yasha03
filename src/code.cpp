@@ -2,6 +2,7 @@
 
 #include <iostream>   // cout, printf
 #include <algorithm>  // fill, copy
+#include <cmath>
 
 namespace assignment {
 
@@ -12,12 +13,17 @@ namespace assignment {
 
   // Task 2
   bool check_bit(int mask, int bit_pos) {
-    if(mask < 0 | bit_pos < 0){
+    if(mask < 0 || bit_pos < 0){
       return false;
     }
-    if ( (1 << bit_pos) & mask ){
+    if( ((mask ^ int(pow(2, bit_pos))) ) == mask - int(pow(2, bit_pos)) ){
       return true;
     }
+    return false;
+
+    /*if ( (1 << bit_pos) & mask ){
+      return true;
+    }*/
   }
 
   // Task 3
